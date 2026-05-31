@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mutual Fund Transaction Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <h1>Transaction Dashboard</h1>
+      <div class="filter-group">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" class="filter-input">
+        
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" class="filter-input">
+        
+        <button id="btnApplyFilter" class="btn btn-primary">Apply Filter</button>
+        <button id="btnResetFilter" class="btn btn-outline">Reset</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <div id="loader" class="loader-container" style="display: none;">
+      <div class="spinner"></div>
+      <p>Fetching Data...</p>
+    </div>
+
+    <div id="dashboardContent">
+      
+      <!-- 1. Investor-wise Purchase Summary per Mutual Fund -->
+      <section class="card">
+        <div class="card-header">
+          <h2>1. Investor-wise Purchase Summary per Mutual Fund</h2>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Investor Name</th>
+                <th>PAN Number</th>
+                <th>Mutual Fund</th>
+                <th class="text-right">Total Amount (₹)</th>
+                <th class="text-right">Total NAV Units</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyInvestorPurchase">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Mutual Fund-wise Summary per Investor -->
+      <section class="card">
+        <div class="card-header">
+          <h2>2. Mutual Fund-wise Summary per Investor</h2>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Mutual Fund</th>
+                <th>Investor Name</th>
+                <th>PAN Number</th>
+                <th class="text-right">Total Amount (₹)</th>
+                <th class="text-right">Total NAV Units</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyMfInvestor">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. Investor List with Purchase Details -->
+      <section class="card">
+        <div class="card-header">
+          <h2>3. Investor List with Purchase Details</h2>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Investor Name</th>
+                <th>PAN Number</th>
+                <th class="text-right">Total Investment (₹)</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyInvestors">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. Mutual Fund Summary -->
+      <section class="card">
+        <div class="card-header">
+          <h2>4. Mutual Fund Summary</h2>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Mutual Fund</th>
+                <th class="text-right">Total Amount Invested (₹)</th>
+                <th class="text-right">Total NAV Units</th>
+                <th class="text-right">Average NAV (₹)</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyMfSummary">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
